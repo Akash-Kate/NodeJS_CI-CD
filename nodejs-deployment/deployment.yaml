@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gym-pro-app
+  labels:
+    app: gym-pro-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gym-pro-app
+  template:
+    metadata:
+      labels:
+        app: gym-pro-app
+    spec:
+      containers:
+      - name: gym-pro-app
+        image: ubfteam/gym-pro:replaceImageTag
+        ports:
+        - containerPort: 8080
