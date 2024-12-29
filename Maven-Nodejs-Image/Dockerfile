@@ -1,13 +1,14 @@
 FROM ubuntu:24.04
 RUN apt-get update \
 && apt-get install wget -y
+RUN apt-get install docker.io -y
 RUN apt update -y && apt install nodejs -y
 RUN apt install npm -y
-RUN apt install openjdk-17-jdk-headless -y
-RUN apt update
-RUN apt install maven -y
+#RUN apt install openjdk-17-jdk-headless -y
+#RUN apt update
+#RUN apt install maven -y
 
-RUN mvn -version
+#RUN mvn -version
 
 
 # # Install Java.
