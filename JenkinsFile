@@ -12,6 +12,11 @@ pipeline {
         //git branch: 'main', url: 'https://github. com/iam-veeramalla/Jenkins-Zero-To-Hero.git'
       }
     }
+    stage('cleanWorkSpace'){
+      steps{
+        cleanWs()
+      }
+    }
     stage('Build and Test') {
       steps {
         sh 'ls -ltr'
