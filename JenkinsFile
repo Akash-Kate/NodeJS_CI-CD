@@ -19,9 +19,6 @@ pipeline {
         sh 'npm install'
       }
     }
-  }
-}
-
     stage('Static Code Analysis') {
       environment {
         SONAR_URL = "http://10.210.9.165:9000"
@@ -32,6 +29,8 @@ pipeline {
         }
       }
     }
+  }
+}
 //     stage('Build and Push Docker Image') {
 //       environment {
 //         DOCKER_IMAGE = "ubfteam/gym-pro:${BUILD_NUMBER}"
