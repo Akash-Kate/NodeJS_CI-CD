@@ -1,8 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'abhishekf5/maven-abhishek-docker-agent:v1'
-      image 'jenkins/jenkins'
+      image 'ubfteam/nodeci:10'
       args '--user root -v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemon
     }
   }
@@ -16,7 +15,6 @@ pipeline {
     stage('Build and Test') {
       steps {
         sh 'ls -ltr'
-        sh 'apt-get install nodejs'
         // build the project and create a JAR file
         sh 'npm install'
       }
@@ -24,16 +22,16 @@ pipeline {
   }
 }
 
-    // stage('Static Code Analysis') {
-    //   environment {
-    //     SONAR_URL = "http://10.210.12.232:9000"
-    //   }
-    //   steps {
-    //     withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
-    //       sh 'mvn sonar:sonar -Dsonar.login=$SONAR_AUTH_TOKEN -Dsonar.host.url=${SONAR_URL}'
-    //     }
-    //   }
-    // }
+    stage('Static Code Analysis') {
+      environment {
+        SONAR_URL = "http://10.210.9.165:9000"
+      }
+      steps {
+        withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
+          sh 'mvn sonar:sonar -Dsonar.login=$SONAR_AUTH_TOKEN -Dsonar.host.url=${SONAR_URL}'
+        }
+      }
+    }
 //     stage('Build and Push Docker Image') {
 //       environment {
 //         DOCKER_IMAGE = "ubfteam/gym-pro:${BUILD_NUMBER}"
