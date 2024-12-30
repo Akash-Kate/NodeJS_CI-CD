@@ -56,7 +56,9 @@ pipeline {
                     pwd
                     ls -ltr
                     whoami
-                    git init
+                    chmod -R 777 ./
+                    ls -ltr
+                    
                     git config user.email "akashkate23.ak@gmail.com"
                     git config user.name "Akash-Kate"
                     BUILD_NUMBER=${BUILD_NUMBER}
