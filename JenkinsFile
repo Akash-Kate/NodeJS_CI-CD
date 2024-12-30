@@ -54,10 +54,10 @@ pipeline {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
                     pwd
-                    ls -ltr
+                    ll
                     whoami
                     chmod -R 777 ./
-                    ls -ltr
+                    ll
                     
                     git config user.email "akashkate23.ak@gmail.com"
                     git config user.name "Akash-Kate"
