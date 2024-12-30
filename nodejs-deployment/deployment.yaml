@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: gym-pro-app
-        image: ubfteam/gym-pro:22
+        image: ubfteam/gym-pro:replaceImageTag
         ports:
         - containerPort: 8080
