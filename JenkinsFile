@@ -56,7 +56,6 @@ pipeline {
                     pwd
                     ls -ltr
                     whoami
-                    cd NodeJS_CI-CD
                     git config user.email "akashkate23.ak@gmail.com"
                     git config user.name "Akash-Kate"
                     BUILD_NUMBER=${BUILD_NUMBER}
