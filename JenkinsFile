@@ -59,8 +59,8 @@ pipeline {
                     chmod -R 777 ./
                     ls -a
                     
-                    git config user.email "akashkate23.ak@gmail.com"
-                    git config user.name "Akash-Kate"
+                    git config --global user.email "akashkate23.ak@gmail.com"
+                    git config --global user.name "Akash-Kate"
                     BUILD_NUMBER=${BUILD_NUMBER}
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" nodejs-deployment/deployment.yaml
                     git add nodejs-deployment/deployment.yaml
